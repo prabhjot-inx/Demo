@@ -10,5 +10,10 @@ namespace Demo.Resolvers
     {
       return authLogic.Register(registerInput);
     }
+
+    public string Login([Service] IAuthLogic authLogic, LoginInputType loginInput) 
+    {
+      return authLogic.Login(loginInput);
+    }
   }
 }

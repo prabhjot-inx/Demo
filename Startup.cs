@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Demo.Data.Entities;
 using Demo.Logics;
 using Demo.Resolvers;
+using Demo.Shared;
 
 namespace Demo
 {
@@ -29,6 +30,7 @@ namespace Demo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AuthContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
             services.AddScoped<IAuthLogic, AuthLogic>();
             services.AddGraphQLServer()
             .AddQueryType<QueryResolver>()
