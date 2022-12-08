@@ -61,17 +61,17 @@ namespace Demo
                 };
             });
             services.AddAuthorization();
-            // services.AddAuthorization(options => {
-            //     options.AddPolicy("roles-policy", policy => {
-            //         policy.RequireRole(new string[]{"admin","super-admin"});
-            //     });
-            //     options.AddPolicy("claim-policy-1", policy => {
-            //         policy.RequireClaim("LastName");
-            //     });
-            //     options.AddPolicy("claim-policy-2", policy=>{
-            //         policy.RequireClaim("LastName",new string[]{"Bommidi","Test"});
-            //     });
-            // });
+            services.AddAuthorization(options => {
+                options.AddPolicy("roles-policy", policy => {
+                    policy.RequireRole(new string[]{"admin","super-admin"});
+                });
+                options.AddPolicy("claim-policy-1", policy => {
+                    policy.RequireClaim("LastName");
+                });
+                options.AddPolicy("claim-policy-2", policy=>{
+                    policy.RequireClaim("LastName",new string[]{"Prabh","Test"});
+                });
+            });
 
         }
 

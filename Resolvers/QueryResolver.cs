@@ -7,6 +7,9 @@ namespace Demo.Resolvers
 {
   public class QueryResolver
   {
+    // [Authorize(Policy="claim-policy-1")]
+    // [Authorize(Roles = new[] {"admin"})]
+    // [Authorize(Policy="roles-policy")]
     [Authorize]
     public string Welcome()
     {
